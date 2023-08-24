@@ -26,6 +26,6 @@ jobs:
       if: always()
       with:
         #trx_files: "/home/runner/work/mybetest/mybetest/src/XUnitExamples/TestResults/xtests.trx" #for ubnutu
-        trx_files: "./src/XUnitExamples/TestResults/xtests.trx"
+        trx_files: D:\a\mybetest\mybetest\src\XUnitExamples\TestResults\xtests.trx
         
   
