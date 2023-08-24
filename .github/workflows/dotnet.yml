@@ -16,7 +16,7 @@ jobs:
       with:  
         dotnet-version: '6.0.x'
     - name: Restore Dependencies
-      run: dotnet resotre ./src/SoftwareTesting.sln
+      run: dotnet restore ./src/SoftwareTesting.sln
     - name: Build
       run: dotnet build ./src/SoftwareTesting.sln --no-restore
     - name: Test
