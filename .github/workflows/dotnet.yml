@@ -8,7 +8,7 @@ on:
     - main 
 jobs:
   publish:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: setup .NET
@@ -25,7 +25,7 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
-        #trx_files: "/home/runner/work/mybetest/mybetest/src/XUnitExamples/TestResults/xtests.trx" #for ubnutu
-        trx_files: D:\a\mybetest\mybetest\src\XUnitExamples\TestResults\xtests.trx
+        trx_files: "/home/runner/work/mybetest/mybetest/src/XUnitExamples/TestResults/xtests.trx" #for ubnutu
+        
         
   
