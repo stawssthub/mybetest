@@ -25,5 +25,5 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
-        trx_files: "./src/XUnitExamples/TestResults/xtests.trx"
+        trx_files: "/home/runner/work/mybetest//src/XUnitExamples/TestResults/xtests.trx"
   
