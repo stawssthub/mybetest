@@ -1,0 +1,29 @@
+name: BE
+
+on:
+  workflow_dispatch:
+
+  push: 
+    branches:
+    - main 
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: setup .NET
+      uses: actions/setup-dotnet@v3
+      with:  
+        dotnet-version: '6.0.x'
+    - name: Restore Dependencies
+      run: dotnet resotre ./src/SoftwareTesting.sln
+    - name: Build
+      run: dotnet build ./src/SoftwareTesting.sln --no-restore
+    - name: Test
+      run: dotnet test ./src/XUnitExamples/XUnitExamples.csproj --no-build --verbosity normal --logger "trx;LogFileName=xtests.trx"
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        trx_files: "./src/XUnitExamples/TestResults/xtests.trx"
+  
