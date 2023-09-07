@@ -17,7 +17,8 @@ jobs:
         dotnet-version: '6.0.x'
     - name: Restore Dependencies
       run: dotnet restore ./src/SoftwareTesting.sln
-    
+    - name: Build
+      run: dotnet build ./src/SoftwareTesting.sln --no-restore
     - name: Test
       run: dotnet test ./src/XUnitExamples/XUnitExamples.csproj --no-build --verbosity normal --logger "trx;LogFileName=xtests.trx"
     - name: Publish Test Results
@@ -47,8 +48,7 @@ jobs:
         dotnet build ./src/SoftwareTesting.sln
         dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"  
 
-    - name: Build
-      run: dotnet build ./src/SoftwareTesting.sln --no-restore
+   
         
         
   
